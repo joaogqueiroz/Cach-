@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.1 (Build 792U)" ts="2018-12-05 23:44:19">
+<Class name="Curso.PedidoItem">
+<Super>%Persistent</Super>
+<TimeChanged>64987,84397.034073</TimeChanged>
+<TimeCreated>64987,83794.700935</TimeCreated>
+
+<Property name="Pedido">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="NUMERO DO PEDIDO "/>
+<Parameter name="XMLNAME" value="CODPEDIDO"/>
+</Property>
+
+<Property name="Produto">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="PRODUTO"/>
+<Parameter name="XMLNAME" value="PRODUTO"/>
+</Property>
+
+<Property name="Quantidade">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="QUANTIDADE"/>
+<Parameter name="XMLNAME" value="QUANTIDADE"/>
+</Property>
+
+<Property name="ValorUnitario">
+<Type>%Numeric</Type>
+<Parameter name="CAPTION" value="VALOR UNITARIO"/>
+<Parameter name="XMLNAME" value="VALOR UNITARIO"/>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^Curso.PedidoItemD</DataLocation>
+<DefaultData>PedidoItemDefaultData</DefaultData>
+<IdLocation>^Curso.PedidoItemD</IdLocation>
+<IndexLocation>^Curso.PedidoItemI</IndexLocation>
+<StreamLocation>^Curso.PedidoItemS</StreamLocation>
+<Data name="PedidoItemDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Pedido</Value>
+</Value>
+<Value name="3">
+<Value>Produto</Value>
+</Value>
+<Value name="4">
+<Value>Quantidade</Value>
+</Value>
+<Value name="5">
+<Value>ValorUnitario</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

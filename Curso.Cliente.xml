@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.1 (Build 792U)" ts="2018-12-05 23:44:11">
+<Class name="Curso.Cliente">
+<Description>
+Cadastro de Cliente</Description>
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeChanged>64987,58042.86344</TimeChanged>
+<TimeCreated>64987,55970.925217</TimeCreated>
+
+<Property name="Codigo">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="CODIGO DO CLIENTE"/>
+<Parameter name="XMLNAME" value="CODCLI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Nome">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="NOME DO CLIENTE"/>
+<Parameter name="XMLNAME" value="NOMCLI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Nascimento">
+<Type>%Date</Type>
+<Parameter name="CAPTION" value="DATA DE NASCIMENTO"/>
+<Parameter name="FORMAT" value="4"/>
+<Parameter name="XMLNAME" value="DTNASCIMENTO"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Idade">
+<Type>%Integer</Type>
+<Calculated>1</Calculated>
+<SqlComputeCode>Set {Idade} = ##class(Curso.Cliente).CalcularIdade({Nascimento})</SqlComputeCode>
+<SqlComputed>1</SqlComputed>
+<Parameter name="CAPTION" value="IDADE"/>
+<Parameter name="XMLNAME" value="IDADE"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="CPF">
+<Type>%Integer</Type>
+<Parameter name="CAPTION" value="CPF"/>
+<Parameter name="XMLNAME" value="CPF"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Index name="CodigoIndex">
+<Properties>Codigo</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Index name="NomeIndex">
+<Properties>Nome</Properties>
+</Index>
+
+<Index name="NascimentoIndex">
+<Properties>Nascimento</Properties>
+</Index>
+
+<Index name="CPFIndex">
+<Properties>CPF</Properties>
+</Index>
+
+<Method name="CalcularIdade">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>Nascimento:%Date</FormalSpec>
+<ReturnType>%Integer</ReturnType>
+<Implementation><![CDATA[
+	If (Nascimento="") Quit 0
+	Quit ($Horolog - Nascimento)\365.25
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^Curso.ClienteD</DataLocation>
+<DefaultData>ClienteDefaultData</DefaultData>
+<IdLocation>^Curso.ClienteD</IdLocation>
+<IndexLocation>^Curso.ClienteI</IndexLocation>
+<StreamLocation>^Curso.ClienteS</StreamLocation>
+<Data name="ClienteDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Codigo</Value>
+</Value>
+<Value name="3">
+<Value>Nome</Value>
+</Value>
+<Value name="4">
+<Value>Nascimento</Value>
+</Value>
+<Value name="5">
+<Value>CPF</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Curso.PedidoItem">
+<Super>%Persistent</Super>
+<TimeChanged>64987,84397.034073</TimeChanged>
+<TimeCreated>64987,83794.700935</TimeCreated>
+
+<Property name="Pedido">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="NUMERO DO PEDIDO "/>
+<Parameter name="XMLNAME" value="CODPEDIDO"/>
+</Property>
+
+<Property name="Produto">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="PRODUTO"/>
+<Parameter name="XMLNAME" value="PRODUTO"/>
+</Property>
+
+<Property name="Quantidade">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="QUANTIDADE"/>
+<Parameter name="XMLNAME" value="QUANTIDADE"/>
+</Property>
+
+<Property name="ValorUnitario">
+<Type>%Numeric</Type>
+<Parameter name="CAPTION" value="VALOR UNITARIO"/>
+<Parameter name="XMLNAME" value="VALOR UNITARIO"/>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^Curso.PedidoItemD</DataLocation>
+<DefaultData>PedidoItemDefaultData</DefaultData>
+<IdLocation>^Curso.PedidoItemD</IdLocation>
+<IndexLocation>^Curso.PedidoItemI</IndexLocation>
+<StreamLocation>^Curso.PedidoItemS</StreamLocation>
+<Data name="PedidoItemDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Pedido</Value>
+</Value>
+<Value name="3">
+<Value>Produto</Value>
+</Value>
+<Value name="4">
+<Value>Quantidade</Value>
+</Value>
+<Value name="5">
+<Value>ValorUnitario</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="Curso.Produto">
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeChanged>64987,84015.613634</TimeChanged>
+<TimeCreated>64987,82680.831391</TimeCreated>
+
+<Property name="Codigo">
+<Description>
+Codigo do Produto</Description>
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="CODIGO"/>
+<Parameter name="XMLITEMNAME" value="CODPRO"/>
+<Parameter name="XMLNAME" value="Codigo"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Descricao">
+<Type>%String</Type>
+<Parameter name="CAPTION" value="DESCRICAO"/>
+<Parameter name="XMLNAME" value="DESCRI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Peso">
+<Type>%Numeric</Type>
+<Parameter name="CAPTION" value="PESO"/>
+<Parameter name="XMLNAME" value="PESO"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Unidade">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="UNIDADE"/>
+<Parameter name="VALUELIST" value=",UN,LT,MT,KG,GL,"/>
+<Parameter name="XMLNAME" value="UNI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Index name="CodigoIndex">
+<Properties>Codigo</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^Curso.ProdutoD</DataLocation>
+<DefaultData>ProdutoDefaultData</DefaultData>
+<IdLocation>^Curso.ProdutoD</IdLocation>
+<IndexLocation>^Curso.ProdutoI</IndexLocation>
+<StreamLocation>^Curso.ProdutoS</StreamLocation>
+<Data name="ProdutoDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Codigo</Value>
+</Value>
+<Value name="3">
+<Value>Descricao</Value>
+</Value>
+<Value name="4">
+<Value>Peso</Value>
+</Value>
+<Value name="5">
+<Value>Unidade</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>

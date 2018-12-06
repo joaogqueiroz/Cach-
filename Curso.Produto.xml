@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.1 (Build 792U)" ts="2018-12-05 23:44:23">
+<Class name="Curso.Produto">
+<Super>%Persistent,%Populate,%XML.Adaptor</Super>
+<TimeChanged>64987,84015.613634</TimeChanged>
+<TimeCreated>64987,82680.831391</TimeCreated>
+
+<Property name="Codigo">
+<Description>
+Codigo do Produto</Description>
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="CODIGO"/>
+<Parameter name="XMLITEMNAME" value="CODPRO"/>
+<Parameter name="XMLNAME" value="Codigo"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Descricao">
+<Type>%String</Type>
+<Parameter name="CAPTION" value="DESCRICAO"/>
+<Parameter name="XMLNAME" value="DESCRI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Peso">
+<Type>%Numeric</Type>
+<Parameter name="CAPTION" value="PESO"/>
+<Parameter name="XMLNAME" value="PESO"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Property name="Unidade">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="CAPTION" value="UNIDADE"/>
+<Parameter name="VALUELIST" value=",UN,LT,MT,KG,GL,"/>
+<Parameter name="XMLNAME" value="UNI"/>
+<Parameter name="XMLNIL" value="1"/>
+</Property>
+
+<Index name="CodigoIndex">
+<Properties>Codigo</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^Curso.ProdutoD</DataLocation>
+<DefaultData>ProdutoDefaultData</DefaultData>
+<IdLocation>^Curso.ProdutoD</IdLocation>
+<IndexLocation>^Curso.ProdutoI</IndexLocation>
+<StreamLocation>^Curso.ProdutoS</StreamLocation>
+<Data name="ProdutoDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Codigo</Value>
+</Value>
+<Value name="3">
+<Value>Descricao</Value>
+</Value>
+<Value name="4">
+<Value>Peso</Value>
+</Value>
+<Value name="5">
+<Value>Unidade</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+</Export>
